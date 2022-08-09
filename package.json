@@ -1,7 +1,26 @@
 {
   "name": "vue-tag-search",
   "version": "0.1.0",
-  "private": true,
+  "main": "src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Seungwoo321/vue-tag-search.git"
+  },
+  "keywords": [
+    "vue",
+    "vue-tag",
+    "vue-tag-search",
+    "tag",
+    "search",
+    "input"
+  ],
+  "homepage": "https://seungwoo321.github.io/vue-tag-search/",
+  "author": "Seungwoo, Lee <seungwoo321@gmail.com> (https://github.com/seungwoo321)",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
