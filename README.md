@@ -1,6 +1,6 @@
 # Vue Tag Search
 
-Tag-style key-based input for search UI
+Vuejs 2.0 - Tag-style key-based input for search UI
 
 ## Live Demo
 
@@ -80,3 +80,11 @@ export default {
 </script>
 
 ```
+
+## Inspired
+
+* [museui/muse-ui](https://github.com/museui/muse-ui) - Material Design UI library for Vuejs 2.0
+
+## License
+
+MIT
