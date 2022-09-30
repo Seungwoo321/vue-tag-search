@@ -127,7 +127,7 @@ export default {
     },
     show () {
       this.$emit('open')
-      this.width = this.$el.getBoundingClientRect().width
+      this.width = this.$refs['vue-tag-search-input'].$el.getBoundingClientRect().width
       this.isShow = true
     },
     close () {
@@ -195,12 +195,14 @@ export default {
   },
   render (h) {
     return h('div', [
+      this.$slots.inputGroupPrepend,
       h('div', {
         ref: 'search',
         staticClass: ['vue-tagsearch']
       },
       [
         h(VueTagSearchInput, {
+          ref: 'vue-tag-search-input',
           props: {
             tagValues: this.tagValues,
             placeholder: this.placeholder,
@@ -218,6 +220,7 @@ export default {
         }),
         this.isShow ? this.renderSearchPanel(h) : undefined
       ]),
+      this.$slots.inputGroupAppend,
       this.tagValues.map((tag, index) => {
         return h(this.inputTagOptions.tag, {
           class: {

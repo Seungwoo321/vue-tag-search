@@ -5,6 +5,7 @@
     position: relative;
     border-radius: 4px;
     box-shadow: none;
+    flex: 1 1 auto;
 }
 
 .vue-tagsearch-wrap {
@@ -12,19 +13,17 @@
     cursor: pointer;
     display: inline-block;
     box-sizing: border-box;
-    border-radius: 4px;
     padding: 0 4px;
     cursor: text;
     width: 100%;
 }
 .vue-tagsearch-tag {
+    display: inline-block;
+    margin: 0.25rem;
     padding: 5px;
     background-color: rgb(242, 242, 242);
     border: 1px solid rgb(242, 242, 242);
-    border-radius: 4px;
     font-size: 12px;
-    margin-left: 4px;
-    line-height: 38px;
     cursor: pointer;
 }
 .vue-tagsearch-tag-remove::before {
@@ -39,7 +38,7 @@
     border-radius: 2px;
     padding: 0 10px;
     background-color: #e6e6e6;
-    width: 200px;
+    width: 100%;
 }
 .vue-tagsearch-input:focus {
     box-shadow: none;
@@ -52,7 +51,6 @@
     border: 1px solid rgb(242, 242, 242);
     position: absolute;
     box-sizing: border-box;
-    border-radius: 4px;
     padding: 4px 0;
 }
 
