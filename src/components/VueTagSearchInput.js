@@ -42,25 +42,6 @@ export default {
       }
     },
     [
-      this.tagValues.map((tag, index) => {
-        return h(this.inputTagOptions.tag, {
-          class: {
-            'vue-tagsearch-tag': this.inputTagOptions.tag === 'span'
-          },
-          style: {
-            'margin-left': '4px'
-          },
-          props: this.inputTagOptions.props
-        }, [
-          h('a', {
-            staticClass: ['vue-tagsearch-tag-remove'],
-            on: {
-              click: () => this.$emit('remove', { deleteItem: tag.split(': '), index })
-            }
-          }),
-          tag
-        ])
-      }),
       h('input', {
         staticClass: ['vue-tagsearch-input'],
         ref: 'input',

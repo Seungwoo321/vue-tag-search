@@ -194,28 +194,49 @@ export default {
     this.debouncedGetData = new Debounce(200)
   },
   render (h) {
-    return h('div', {
-      ref: 'search',
-      staticClass: ['vue-tagsearch']
-    },
-    [
-      h(VueTagSearchInput, {
-        props: {
-          tagValues: this.tagValues,
-          placeholder: this.placeholder,
-          inputValue: this.inputValue,
-          inputTagOptions: this.inputTagOptions
-        },
-        on: {
-          show: this.show,
-          input: this.changeValue,
-          remove: this.removeItem
-        },
-        nativeOn: {
-          keydown: this.keydownHandler
-        }
-      }),
-      this.isShow ? this.renderSearchPanel(h) : undefined
+    return h('div', [
+      h('div', {
+        ref: 'search',
+        staticClass: ['vue-tagsearch']
+      },
+      [
+        h(VueTagSearchInput, {
+          props: {
+            tagValues: this.tagValues,
+            placeholder: this.placeholder,
+            inputValue: this.inputValue,
+            inputTagOptions: this.inputTagOptions
+          },
+          on: {
+            show: this.show,
+            input: this.changeValue,
+            remove: this.removeItem
+          },
+          nativeOn: {
+            keydown: this.keydownHandler
+          }
+        }),
+        this.isShow ? this.renderSearchPanel(h) : undefined
+      ]),
+      this.tagValues.map((tag, index) => {
+        return h(this.inputTagOptions.tag, {
+          class: {
+            'vue-tagsearch-tag': this.inputTagOptions.tag === 'span'
+          },
+          style: {
+            'margin-left': '4px'
+          },
+          props: this.inputTagOptions.props
+        }, [
+          h('a', {
+            staticClass: ['vue-tagsearch-tag-remove'],
+            on: {
+              click: () => this.removeItem({ deleteItem: tag.split(': '), index })
+            }
+          }),
+          tag
+        ])
+      })
     ])
   }
 }

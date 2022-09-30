@@ -19,13 +19,13 @@
         @remove:searchModel="removeSearchModel"
       >
       </vue-tag-search>
-      <textarea
-        style="width: 690px; height: 280px; margin: 10px"
-        readonly
-        :value="JSON.stringify(searchModel, null, 2)"
-      >
-      </textarea>
     </div>
+    <textarea
+      style="width: 690px; height: 280px; margin: 10px"
+      readonly
+      :value="JSON.stringify(searchModel, null, 2)"
+    >
+    </textarea>
     <footer class="footer">
       Released under the <a href="//github.com/seungwoo321/vue-tag-search/blob/master/LICENSE">MIT</a> license. <a href="//github.com/seungwoo321/vue-tag-search">View source.</a>
     </footer>
@@ -67,7 +67,7 @@ export default {
 
 <style>
 #app {
-  /* padding-top: 20px; */
+  padding-top: 20px;
   width: 720px;
   margin: 0 auto;
 }
@@ -76,9 +76,6 @@ export default {
   flex-flow: column;
 }
 @media screen and (min-width: 900px) {
-  .main-wrapper {
-    flex-flow: row;
-  }
   .main-wrapper > textarea {
     width: 500px;
   }
