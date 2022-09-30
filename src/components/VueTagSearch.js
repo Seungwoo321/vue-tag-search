@@ -194,8 +194,10 @@ export default {
     this.debouncedGetData = new Debounce(200)
   },
   render (h) {
+    const prependSlot = this.$slots.inputGroupPrepend
+    const appendSlot = this.$slots.inputGroupAppend
     return h('div', [
-      this.$slots.inputGroupPrepend,
+      prependSlot,
       h('div', {
         ref: 'search',
         staticClass: ['vue-tagsearch']
@@ -220,26 +222,28 @@ export default {
         }),
         this.isShow ? this.renderSearchPanel(h) : undefined
       ]),
-      this.$slots.inputGroupAppend,
-      this.tagValues.map((tag, index) => {
-        return h(this.inputTagOptions.tag, {
-          class: {
-            'vue-tagsearch-tag': this.inputTagOptions.tag === 'span'
-          },
-          style: {
-            'margin-left': '4px'
-          },
-          props: this.inputTagOptions.props
-        }, [
-          h('a', {
-            staticClass: ['vue-tagsearch-tag-remove'],
-            on: {
-              click: () => this.removeItem({ deleteItem: tag.split(': '), index })
-            }
-          }),
-          tag
-        ])
-      })
+      appendSlot,
+      !prependSlot && !appendSlot
+        ? this.tagValues.map((tag, index) => {
+          return h(this.inputTagOptions.tag, {
+            class: {
+              'vue-tagsearch-tag': this.inputTagOptions.tag === 'span'
+            },
+            style: {
+              'margin-left': '4px'
+            },
+            props: this.inputTagOptions.props
+          }, [
+            h('a', {
+              staticClass: ['vue-tagsearch-tag-remove'],
+              on: {
+                click: () => this.removeItem({ deleteItem: tag.split(': '), index })
+              }
+            }),
+            tag
+          ])
+        })
+        : undefined
     ])
   }
 }
