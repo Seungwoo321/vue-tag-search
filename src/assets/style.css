@@ -34,7 +34,7 @@
     height: 35px;
     line-height: 35px;
     box-sizing: border-box;
-    border: none !important;
+    border: none;
     border-radius: 2px;
     padding: 0 10px;
     background-color: #e6e6e6;
@@ -47,7 +47,7 @@
 
 .vue-tagsearch-panel__view {
     border: 1px solid transparent;
-    background-color: #ffffff !important;
+    background-color: #ffffff;
     border: 1px solid rgb(242, 242, 242);
     position: absolute;
     box-sizing: border-box;
@@ -75,12 +75,12 @@
 }
 
 .vue-tagsearch-panel__item.highlight-color {
-    background-color: rgb(237, 237, 237) !important;
+    background-color: rgb(237, 237, 237);
 }
 
 .vue-tagsearch-panel__item:hover,
 .vue-tagsearch-panel__item.hover-color {
-    background-color: #166DFE !important;
+    background-color: #166DFE;
     color: #fff
 }
 

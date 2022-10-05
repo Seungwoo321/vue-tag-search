@@ -34,7 +34,7 @@
 
 <script>
 import VueTagSearch from './'
-
+import '@/assets/style.css'
 export default {
   name: 'App',
   components: {
