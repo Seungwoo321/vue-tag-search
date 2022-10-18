@@ -117,12 +117,21 @@ export default {
         if (event.key === 'ArrowDown') {
           this.show()
         }
-        if (event.keyCode === 13 && !this.tagValues.includes(this.inputValue) && this.inputValue.split(': ')[1]) {
-          if (this.tagKeys.includes(this.inputValue.split(': ')[0])) {
-            this.$emit('add:searchModel', this.inputValue.split(': '))
-            this.changeValue('')
-          }
+        if (event.keyCode === 13 &&
+            !this.tagValues.includes(this.inputValue.split(':')[0].trim() + ': ' + this.inputValue.split(':')[1].trim()) &&
+            this.inputValue.split(':')[1].trim()
+        ) {
+          this.addSearchModel()
         }
+      }
+    },
+    addSearchModel () {
+      if (this.tagKeys.includes(this.inputValue.split(':')[0].trim())) {
+        this.$emit('add:searchModel', [this.inputValue.split(':')[0].trim(), this.inputValue.split(':')[1].trim()])
+        this.changeValue('')
+        this.$emit('add:searchModel:success')
+      } else {
+        this.$emit('add:searchModel:failed')
       }
     },
     show () {
