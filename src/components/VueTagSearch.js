@@ -126,9 +126,12 @@ export default {
       }
     },
     addSearchModel () {
-      if (this.tagKeys.includes(this.inputValue.split(':')[0].trim())) {
-        this.$emit('add:searchModel', [this.inputValue.split(':')[0].trim(), this.inputValue.split(':')[1].trim()])
-        this.changeValue('')
+      const inputValues = this.inputValue.split(':')
+      if (this.tagKeys.includes(inputValues[0].trim())) {
+        this.$emit('add:searchModel', [inputValues[0].trim(), inputValues[1].trim()])
+        if (inputValues[1].trim()) {
+          this.changeValue('')
+        }
         this.$emit('add:searchModel:success')
       } else {
         this.$emit('add:searchModel:failed')
