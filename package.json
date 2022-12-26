@@ -1,6 +1,6 @@
 {
   "name": "vue-tag-search",
-  "version": "0.1.7",
+  "version": "0.1.71",
   "main": "src/index.js",
   "files": [
     "dist",

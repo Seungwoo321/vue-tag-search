@@ -119,7 +119,7 @@ export default {
         }
         const inputValues = this.inputValue.split(':')
         if (event.keyCode === 13 &&
-          (!this.inputValue.length || !this.tagValues.includes(inputValues[0].trim()))) {
+          (!this.inputValue.length || !this.data.includes(inputValues[0].trim()))) {
           this.$emit('alert:wrongInput')
         } else if (event.keyCode === 13 &&
             this.inputValue.length > 0 && event.keyCode === 13 &&
