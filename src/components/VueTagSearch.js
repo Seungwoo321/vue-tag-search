@@ -117,9 +117,14 @@ export default {
         if (event.key === 'ArrowDown') {
           this.show()
         }
+        const inputValues = this.inputValue.split(':')
         if (event.keyCode === 13 &&
-            !this.tagValues.includes(this.inputValue.split(':')[0].trim() + ': ' + this.inputValue.split(':')[1].trim()) &&
-            this.inputValue.split(':')[1].trim()
+          (!this.inputValue.length || !this.tagValues.includes(inputValues[0].trim()))) {
+          this.$emit('alert:wrongInput')
+        } else if (event.keyCode === 13 &&
+            this.inputValue.length > 0 && event.keyCode === 13 &&
+            !this.tagValues.includes(inputValues[0].trim() + ': ' + inputValues[1].trim()) &&
+            inputValues[1].trim()
         ) {
           this.addSearchModel()
         }
