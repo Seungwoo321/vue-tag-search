@@ -38,6 +38,19 @@ export default {
           }
         }
       }
+    },
+    state: {
+      type: String,
+      default: '',
+      validator (value) {
+        return ['', 'success', 'warning', 'danger'].includes(value)
+      }
+    },
+    stateClass: {
+      type: Object,
+      default: function () {
+        return {}
+      }
     }
   },
   data () {
@@ -217,7 +230,10 @@ export default {
       prependSlot,
       h('div', {
         ref: 'search',
-        staticClass: ['vue-tagsearch']
+        staticClass: ['vue-tagsearch'],
+        class: {
+          [this.stateClass[this.state]]: this.state
+        }
       },
       [
         h(VueTagSearchInput, {
